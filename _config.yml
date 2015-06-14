@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title:            Site Title
+title:            
 locale:           en_US
-url:              
+url:              http://logicx24.github.io
 
 
 # Jekyll configuration
@@ -27,12 +27,12 @@ kramdown:
 # Site owner
 owner:
   name: Your Name
-  avatar: bio-photo.jpg
-  bio: "Describe your self."
-  email: 
+  avatar: me.jpg
+  bio: "I am Gotham's Reckoning."
+  email: aakashjapi@berkeley.edu
   disqus-shortname: 
-  twitter: #username
-  facebook: #username
+  twitter: logicx24
+  facebook: aakash.japi
   google:
     plus: #username
     analytics: 
@@ -40,9 +40,9 @@ owner:
     ad-client: 
     ad-slot: 
   bing-verify: 
-  github: #username
+  github: logicx24
   stackoverflow: #http://stackoverflow.com/users/123456/username
-  linkedin: #username
+  linkedin: aakashjapi
   xing: #username
   instagram: #username
   lastfm: #username
