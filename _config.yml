@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title:            
+title:            Aakash Japi
 locale:           en_US
-url:              http://logicx24.github.io
+url:              http://localhost:4000
 
 
 # Jekyll configuration
@@ -26,7 +26,7 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
+  name: Aakash Japi
   avatar: me.jpg
   bio: "I am Gotham's Reckoning."
   email: aakashjapi@berkeley.edu
