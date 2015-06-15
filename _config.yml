@@ -1,9 +1,9 @@
 # Site wide configuration
 
-title:            Aakash Japi
+title:            "The Sopranos, Silicon Valley, and Summer Afternoons: A Day in my Life"
 locale:           en_US
-url:              http://logicx24.github.io
-
+#url:              http://logicx24.github.io
+url:              http://localhost:4000
 
 # Jekyll configuration
 
@@ -28,9 +28,9 @@ kramdown:
 owner:
   name: Aakash Japi
   avatar: me.jpg
-  bio: "I am Gotham's Reckoning."
+  bio: "A movie-watching, book-loving, Software engineer and Entrepreneur from Berkeley."
   email: aakashjapi@berkeley.edu
-  disqus-shortname: 
+  disqus-shortname: "The Sopranos, Silicon Valley, and Summer Afternoons: A Day in my Life"
   twitter: logicx24
   facebook: aakash.japi
   google:
