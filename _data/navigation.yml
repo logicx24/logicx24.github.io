@@ -1,9 +1,10 @@
 # Site navigation links
 
-- title: About
-  url: /about/
+- title: About the Blog
+  url: /about-the-blog/
 
 - title: Post Archive
   url: /posts/
+
 
 

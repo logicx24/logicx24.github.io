@@ -22,13 +22,15 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   use_coderay: false
+  input: GFM
+  hard_wrap: true  
 
 
 # Site owner
 owner:
   name: Aakash Japi
   avatar: me.jpg
-  bio: "A movie-watching, book-loving, Software engineer and Entrepreneur from Berkeley."
+  bio: "A movie-watching, book-loving, software engineer and entrepreneur at Berkeley."
   email: aakashjapi@berkeley.edu
   disqus-shortname: "The Sopranos, Silicon Valley, and Summer Afternoons: A Day in my Life"
   twitter: logicx24
@@ -39,7 +41,7 @@ owner:
     verify: 
     ad-client: 
     ad-slot: 
-  bing-verify: 
+  bing-verify:
   github: logicx24
   stackoverflow: #http://stackoverflow.com/users/123456/username
   linkedin: aakashjapi
