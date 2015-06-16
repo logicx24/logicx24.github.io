@@ -1,6 +1,6 @@
 ---
 layout: home
-excerpt: "A minimal Jekyll theme for your blog by designer Michael Rose."
+excerpt: "The Sopranos, Silicon Valley, and Summer Afternoons, by Aakash Japi."
 tags: [Jekyll, theme, responsive, blog, template]
 image:
   feature: cover.jpg
