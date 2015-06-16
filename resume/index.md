@@ -68,7 +68,7 @@ Projects:
 
 * **Reddit Macro Bot:** I created a basic programming language that allows you to interact with real-time events on Reddit. This is implemented through a Reddit Bot, and can be interacted with by "summoning" the bot's username on Reddit, and writing a code block in the special, Python-esque syntax. 
 
-* **Reimburse:** At a hackathon, my group made an Android App, an Iphone App, and a Web Platform to improve the process of travel reimbursements for companies and employees/interviewees. Instead of having to store receipts, you can now just take a picture of your receipt on the mobile app. This is then sent to our OpenCV/Tesseract backend, which will pull out the price and the date, and store that in a database. You do this for all your expenses. The company can then open our web platform, and see all of your transactions, and approve them and pay with stripe all at once, or individually. 
+* **Reimburse:** At a hackathon, my group made an Android App, an IPhone App, and a Web Platform to improve the process of travel reimbursements for companies and employees/interviewees. Instead of having to keep receipts, you can now just take a picture of your receipt on our mobile app. This is then sent to our OpenCV/Tesseract backend, which will use OCR and grab the price and the date, and store that in a database. The company can then open our web platform, and see all of your transactions, and approve them and pay with Stripe individually or all at once. 
 
 And many more! I code too much to list everything I do. 
 ￼
