@@ -34,7 +34,10 @@ Because I'm also possessed by this belief that life is a series of romantic noti
   
 There's a fantastic line in Assassin's Creed 3, where a victim of the Assassin, in his last few words, says:  
   
-> Don't look at me like that. We're different, you and I. You're just some blind fool, who's always chasing butterflies. Whereas I'm the type of guy, who likes to have a beer in one hand, and a titty in the other. Thing is, boy... I can have what I seek. Had it, even. You? Your hands will always be empty.  
+> Don't look at me like that. We're different, you and I. You're just some blind fool, who's always chasing butterflies. Whereas 
+>I'm the type of guy, who likes to have a beer in one hand, and a titty in the other. Thing is, boy... I can have what I seek. Had it, even. You? 
+>
+>Your hands will always be empty.  
   
 Sometimes, I think he's right.  
   
