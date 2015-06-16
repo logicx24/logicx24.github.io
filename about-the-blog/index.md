@@ -32,9 +32,10 @@ I've spent my life in pursuit of this, and I plan on spending much more of it ch
   
 Because I'm also possessed by this belief that life is a series of romantic notions that we pine for and never reach. We want things, and long for them and work for them, but we never can hold them, never touch them, never entirely _possess_ them.  
   
-There's a fantastic line in Assassin's Creed 3, where a victim of the Assassin, in his last few words, says:
->Don't look at me like that. We're different, you and I. You're just some blind fool, who's always chasing butterflies. Whereas I'm the type of guy, who likes to have a beer in one hand, and a titty in the other. Thing is, boy... I can have what I seek. Had it, even. You? Your hands will always be empty.
+There's a fantastic line in Assassin's Creed 3, where a victim of the Assassin, in his last few words, says:  
 
+>Don't look at me like that. We're different, you and I. You're just some blind fool, who's always chasing butterflies. Whereas I'm the type of guy, who likes to have a beer in one hand, and a titty in the other. Thing is, boy... I can have what I seek. Had it, even. You? Your hands will always be empty.
+  
 Sometimes, I think he's right.  
   
 This blog is conceived from this question: can we achieve our deeper desires, the ones that don't easily manifest in the material? Of course, I'll have many blog posts on technical topics, on politics, on my personal interests in data science, distributed systems, startups, books and movies, and even on the random things I come up with in the shower, but I'll try to keep things on this theme. 
