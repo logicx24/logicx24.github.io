@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "All These Things That I've Done - The Killers"
+title: "All These Things That I've Done"
 date: 
 modified:
 excerpt:
