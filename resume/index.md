@@ -40,7 +40,7 @@ Work Experience:
 * **Natero** (Internship: May 2015 - Present)
   * Currently working as a backend/infrastructre intern at Natero, a predictive analytics company in Mountain View, CA.  
  
-* **Stanzo.co** (Internship: May 2014 – August 2014)
+* **Stanza.co** (Internship: May 2014 – August 2014)
   * Worked as a full stack engineer at a rapidly growing startup
   * Used diverse technologies as Node.js, Ember.js, MongoDB, Redis, and Elasticsearch
   * Built out partnership with Ticketmaster; implemented their API into SpotOn’s calendar infrastructure
