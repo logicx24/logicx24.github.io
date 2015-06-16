@@ -26,7 +26,7 @@ or:
 	if hasPostedOnGoneWild(reply.user): 
 	PM(/u/username, "reminder text")
 
-These are all executed by calling the bot's username in a Reddit comment.
+These are all executed by calling the bot's username in a Reddit comment).
 
 Currently, there are only a few actions, like PM or make a post, and the Gonewild functionality is the most complicated. I also only have a few listeners, like for upvotes on posts, replies to posts, and others. I'll make a post eventually on the technical details of this.
 
@@ -43,7 +43,8 @@ And when I'm not doing either of those, I'll be watching a movie. Here's a list 
 * Watchmen
 * Fight Club
 * Trainspotting
-* Zodiac, Drive
+* Zodiac 
+* Drive
 * Rush
 * Margin Call
 * There Will Blood
