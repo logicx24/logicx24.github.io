@@ -2,8 +2,8 @@
 
 title:            "The Sopranos, Silicon Valley, and Summer Afternoons: A Day in my Life"
 locale:           en_US
-url:              http://logicx24.github.io
-#url:              http://localhost:4000
+#url:              http://logicx24.github.io
+url:              http://localhost:4000
 
 # Jekyll configuration
 
