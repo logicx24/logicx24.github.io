@@ -34,6 +34,9 @@ Programming Languages:
 Work Experience:
 ----------------
 
+* **Capital One Software Engineering Summit** (May 15 - May 22, 2015)
+ * Was one of 30 Computer Science students chosen for a selective conference at Capital One's national headquarters. I went to a number of programming workshops and training seminars, networked with engineers and executives from Capital One, and took part in a rigorous hackathon, in which I, along with 4 others, presented my application to Capital One leadership.
+
 * **Natero** (Internship: May 2015 - Present)
   * Currently working as a backend/infrastructre intern at Natero, a predictive analytics company in Mountain View, CA.  
  
@@ -43,7 +46,7 @@ Work Experience:
   * Built out partnership with Ticketmaster; implemented their API into SpotOn’s calendar infrastructure
   * Handled a number of scaling issues including MongoDB query efficiency and Node.js request handling, as startup grew 300% during my stay
   * Pitched a number ideas to rest of team, many of which were incorporated into product
-  
+
 * **Gradescope** (October 2014-January 2015)
   * Worked part-time as a backend engineer at a growing company at the Berkeley SkyDeck
   * Used Ruby on Rails and Postgres SQL to create an admin dashboard for data visualization 
