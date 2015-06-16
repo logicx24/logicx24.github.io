@@ -18,7 +18,7 @@ Now, I really liked _Casablanca_. I still do: two or three times a year, I'll op
   
 _The Godfather_, at its core, is a retelling of the American Dream: a story of one man's rise from the lowlands of Sicily, to Little Italy, to the luxury of Long Beach. It was the elevation of the boy, Vito Andolini, to the man, Don Corleone, and the consequences that come from such power.  
   
-My parents, too, are the American Dream. They were born as lower-middle class in Mumbai, the first generation of the newly independent India, and came from very little. My great-grandfather was wealthy man, educated in Europe and a successful businessman in India, but much of that money was squandered by my dad's time. My grandfather on my maternal side was a brilliant man who was never able to utilize his talents and spent much of life frustrated.      
+My parents, too, are the American Dream. They were born as lower-middle class in Mumbai, the first generation of the newly independent India, and came from very little. My great-grandfather was wealthy man, who was educated in Europe and became a successful businessman in India, but much of that money was squandered by my dad's time. My grandfather on my maternal side was a brilliant man who was never able to utilize his talents and spent much of life frustrated.      
   
 My father came here in 1990; my mother, after marriage, in 1995. They began with nothing: my dad made 30,000 dollars a year working for an acounting firm in Atlanta, and mother put herself through Medical School in India. In '95, my mother came, carrying a newly born me, and passed the USMLE's on her first try while nursing an infant.  
   
