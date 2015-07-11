@@ -142,7 +142,7 @@ We also will need to extract tables from read queries so we know what tables the
 
 So lets go through this. This is similar to above: we're going through the clauseList and checking if we're inside a particular clause. If we are, and the current QueryPart is a table, then it must be a table involved in a select query (either in the select from part, or as a joined table). 
 
-The threadlocal code is a utility I had to use to allow table names that were extracted in this method to be passed to the ResultCache.java file so that they could be processed and used. There isn't a direct way for these two objects to communicate, as they are instantiated entirely separately, as you will soon see. So, the threadlocal syntax allows us to pass a variable (in this case, a list) between two objects, while ensuring that only the thread that placed the object must be the same as the thread that accesses it after. 
+The threadlocal code is a utility I had to use to allow table names that were extracted in this method to be passed to the ResultCache.java file so that they could be processed and used. There isn't a direct way for these two objects to communicate, as they are instantiated entirely separately, as you will soon see. So, the threadlocal syntax allows us to pass a variable (in this case, a list) between two objects, while ensuring that the thread that placed the object must be the same as the thread that accesses it after. 
 
 Invalidations
 -------------
@@ -153,6 +153,7 @@ We build these lists in ResultCache, where, every time a query is executed, we a
 For example, if we had this very simple query:
 
 	SELECT * FROM languages
+
 Then we'd add it to a Redis list that had a key "languages" and had as values all queries that involved the table "languages."
 
 This, then, makes invalidations effortless. When the method invalidate(tableName) is called, we simply access the list of all queries that involve tableName, delete them from Redis, and remove them from that list. The cache, then, no longer holds any result objects for these queries, and so, they are effectively invalidated.
