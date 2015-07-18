@@ -88,7 +88,7 @@ That DSLContext can be used as normal to build queries, and all of them will be 
 
 Table Extraction
 ----------------
-Now, invalidations are tricky. There's several decisions we have to make here: what level do we need to invalidate at? I choose the table level (that is, whenever an insert is performed, I invalidate all queries that either select from or are joined with that table), but if your application has something like a consistent pattern of inserting into a table and then selecting from that table, a table-based invalidation cache will end up being worthless. I won't go into all the possibilities for invalidations here, but it's something worth thinking about. 
+Now, invalidations are tricky. There's a major decision we have to make here: what level do we need to invalidate at? I chose the table level (that is, whenever an insert is performed, I invalidate all queries that either select from or are joined with that table), but if your application has something like a consistent pattern of inserting into a table and then selecting from that table, a table-based invalidation cache will end up being worthless. I won't go into all the possibilities for invalidations here, but it's something worth thinking about. 
   
 First off, to invalidate by table, we'll need to figure out how to extract table names from every query. We could do this through string parsing, which is what I set up first, but that'll become tricky with indefinitely nested select queries and complicated join expressions (both of which I had to deal with; if those aren't used in your application, than this is a simple route you can choose). 
 
