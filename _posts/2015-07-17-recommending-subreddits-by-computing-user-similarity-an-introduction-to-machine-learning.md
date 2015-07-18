@@ -4,7 +4,7 @@ title: "Recommending Subreddits by Computing User Similarity: An Introduction to
 modified:
 categories: 
 excerpt:
-tags: [reddit, subreddits, machine learning, nearest neighbors, recommendation engine, recommendations]
+tags: [reddit, subreddits, machine learning, nearest neighbors, recommendation engine, recommendations, python]
 comments: true
 image:
   feature:
