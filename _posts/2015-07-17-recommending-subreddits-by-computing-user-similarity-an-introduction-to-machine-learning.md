@@ -218,5 +218,7 @@ I'd encourage anyone reading this as an introduction to implement a similar syst
 
 Anyways, I hope this was clear and helpful. Next week, I'll write about making a simple search engine for text files. 
 
+Also, here's all the code from the article on [GitHub](https://github.com/logicx24/SubredditRecommendationEngine).
+
  
 
