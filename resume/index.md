@@ -13,7 +13,7 @@ Education:
 ----------
 
 * **University of California, Berkeley**
-  * Major: Electrical Engineering and Computer Sciencev
+  * Major: Electrical Engineering and Computer Science
   * YOG: 2017 
 * **Relevant Coursework (by Spring 2015):**
   * CS61B - Data Structures
