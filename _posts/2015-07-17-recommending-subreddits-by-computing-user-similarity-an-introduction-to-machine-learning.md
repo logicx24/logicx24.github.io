@@ -158,14 +158,11 @@ After this, we need to find the user's _k_ closest neighbors. This, too, is simp
 		
 		distances = []
 		for user in allUsers(client):
-		
-			if len(distances) > k:
-				break
 				
 			dist = vectorDistance(username, user['username'])
 			distances.append((user['username'], dist))
 			
-		distances.sort(key=operator.itemgetter(1))
+		distances.sort(key=operator.itemgetter(1))[k:]
 		return distances
 
 Then, we have to go through each of these similar users, and return the subreddit that they share the most but that the target doesn't subscribe to. That's done here:
