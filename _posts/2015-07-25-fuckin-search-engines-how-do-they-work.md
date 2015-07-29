@@ -38,15 +38,18 @@ First, however, we have to parse and tokenize (split into words) our corpus of d
 			re.sub(r'[\W_]+','', file_to_terms[file])
 			file_to_terms[file] = file_to_terms[file].split()
 		return file_to_terms
+		
 
 Two things that I haven't done here but I'd recommend doing are removing all the stopwords (words like "the," "and," "a," etc. that don't add to a document's relevance) and stemming all the words (so running, runner, runs all become run) using an external library (this will slow it down considerably though). 
 
 Now I know I said that our inverted index would map words to document names, but, we also want to support phrase queries: queries for not only words, but words in a specific sequence. For this, we'll need to know where in each document each word shows up, so we can check for order. I used each word's index in the tokenized list for a document as the position of the word in that document, so our eventual inverted index will look like this:
 	
 	{word: {documentID: [pos1, pos2, ...]}, ...}, ...}
+	
 instead of this:
 
 	{word: [documentID, ...], ...}
+	
 
 So our first task, then, is to create a mapping of words to their positions for each document, and then combine these to create our complete inverted index. This is what that looks like:
 
@@ -60,12 +63,14 @@ So our first task, then, is to create a mapping of words to their positions for 
 			else:
 				fileIndex[word] = [index]
 		return fileIndex
+		
 	
 This code is fairly self explanatory: it takes in the whitespace-split list of terms in the document (in which the words are in their original ordering), and adds each to a hashtable, where the values are a list of positions of that word. We build this list up iteratively as we go through the list, until we've gone through all the words, leaving us with a table keyed by strings and mapping to a list of positions of those strings. 
 
 Now, we need to combine these hashtables. I started this by creating an intermediary index of the format 
 
 	{documentID: {word: [pos1, pos2, ...]}, ...}
+	
 which we will then transform to our final index. That's done here:
 
 	#input = {filename: [word1, word2, ...], ...}
@@ -75,6 +80,7 @@ which we will then transform to our final index. That's done here:
 		for filename in termlists.keys():
 			total[filename] = index_one_file(termlists[filename])
 		return total
+		
 
 This code is very simple: it just takes the results of the file_to_terms function, and creates a new hashtable keyed by filename and with values that are the result of the previous function, making a nested hashtable.
 
@@ -94,6 +100,7 @@ Then, we can actually construct our inverted index. Here's the code:
 				else:
 					total_index[word] = {filename: regdex[filename][word]}
 		return total_index
+		
 So, lets go through this. First, we make an empty hashtable (python dictionary), and we use two nested for loops to iterate through every word in the input hash. Then, we first check if that word is present as a key in the output hashtable. If it isn't, then we add it, setting as its value another hashtable that maps the document (identified, in this case, by the variable filename) to the list of positions of that word. 
 
 If it is a key, then we do another check: if the current document is in each word's hashtable (the one that maps filenames to word positions). If it is, we extend the current positions list with this list of positions (note that this case is left in only for completeness: it will never be hit because each word will only have one list of positions for every filename). If it is not, then we set the positions equal to the positions list for this filename. 
@@ -118,6 +125,7 @@ We're going to implement standard queries first. A simple way to implement these
 			return [filename for filename in self.invertedIndex[word].keys()]
 		else:
 			return []
+			
 This code is pretty basic. All we're doing here is sanitizing the input with a regular expression, and then returning a list of all the keys in the hashtable for that word in the index (which is just all the filenames that word appears in). 
 
 Then a standard query is a very simple extension on top of this: we just aggregate lists and union them, as show here:
@@ -129,6 +137,7 @@ Then a standard query is a very simple extension on top of this: we just aggrega
 		for word in string.split():
 			result += self.one_word_query(word)
 		return list(set(result))
+		
 If you wanted to implement a query that ensure that every word in the query shows up in the final result list, then you should just use an intersection instead of a union to aggregate the results of the single word queries. That's fairly trivial to do, and I'll leave it as an exercise to the reader. 
 
 The final type of query is a phrase query, which is a bit more involved, as we have to ensure the correct ordering of the words in the documents. Here's the code for this query (I'll explain after):
@@ -151,6 +160,7 @@ The final type of query is a phrase query, which is a bit more involved, as we h
 				result.append(filename)
 		return self.rankResults(result, string)
 		
+		
 So again, we first start off by sanitizing the input query. Then, we run a single word query for every word in the input, and add each of these result lists to our total list. Then, we create a set called setted, which takes the intersection of the first list with all the other list (essentially taking the intersection of all of the lists), and leaves us with our intermediate result set: all the documents that contain all the words in the query. 
 
 Then, we have to check for ordering. So, for every list in the intermediate results, we first make a list of lists of the positions of each word in the input query. Then (pay attention here!) we use two nested for loops to iterate through this list of lists. For every position in every list, we subtract a number _i_, which increases as we go through the list of lists. _i_ increments by 1 when we got through the list of lists. Now, remember that python lists preserve order, so this list of lists contains the position lists of every word in the original query in the order of the words in the original query. Then, if these words are in the proper order, and we subtract an integer, _i_, from every position in each position list, and _i_ increments by 1 as we go to each successive position list, then, if these phrases are in order, the intersection of all of these modified lists of lists must have a length of at least one. 
@@ -164,14 +174,17 @@ Lets say the phrase we're querying for is "the cake is a lie." Then, for a speci
 	is: [179, 36, 197]
 	a: [221, 37, 912]
 	lie: [188, 6, 38]
+	
 
 Then, our list of lists is:
 	
 	[[23, 34, 15], [19, 35, 12], [179, 36, 197], [221, 37, 912], [188, 6, 38]]
+	
 
 Now, we subtract _i_ from each element in each list, where _i_ is 0 for the first list, 1 for the second list, 2 for the third list, etc.
 
 	[[23, 34, 15], [18, 34, 11], [177, 34, 195], [218, 34, 909], [184, 2, 34]]
+	
 
 Then, we take the intersection of all of these lists, which will leave us with one element, 34. This would then indicate that the phrase  "the cake is a lie" is in the file in order. And this is true: if we look at the original list, we see that the sequence 34, 35, 36, 37, 38 gives us our phrase. 
 
