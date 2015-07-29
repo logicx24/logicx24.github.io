@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fucking Search Engines: How Do They Work? (By the Insane Clown Posse)"
+title: "Implementing a Search Engine with Ranking in Python"
 modified:
 categories: 
 excerpt:
