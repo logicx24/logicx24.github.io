@@ -29,9 +29,9 @@ So the first step in building a text search engine is assembling an inverted ind
 
 First, however, we have to parse and tokenize (split into words) our corpus of documents. We'll do this as follows: for every document we want to add to our index, we'll remove all punctuation and split it on whitespace, and create a temporary hashtable that maps filenames to their list of tokens. We'll repeatedly transform this hashtable until we reach the final inverted index I described above (well, with one extra complication, but I'll explain this). Here's the code to do the initial text filtering: 
 
-	def process_files(self):
+	def process_files(filenames):
 		file_to_terms = {}
-		for file in self.filenames:
+		for file in filenames:
 			pattern = re.compile('[\W_]+')
 			file_to_terms[file] = open(file, 'r').read().lower();
 			file_to_terms[file] = pattern.sub(' ',file_to_terms[file])
@@ -121,8 +121,8 @@ We're going to implement standard queries first. A simple way to implement these
 	def one_word_query(word, invertedIndex):
 		pattern = re.compile('[\W_]+')
 		word = pattern.sub(' ',word)
-		if word in self.invertedIndex.keys():
-			return [filename for filename in self.invertedIndex[word].keys()]
+		if word in invertedIndex.keys():
+			return [filename for filename in invertedIndex[word].keys()]
 		else:
 			return []
 			
@@ -130,35 +130,35 @@ This code is pretty basic. All we're doing here is sanitizing the input with a r
 
 Then a standard query is a very simple extension on top of this: we just aggregate lists and union them, as show here:
 
-	def free_text_query(self, string):
+	def free_text_query(string):
 		pattern = re.compile('[\W_]+')
 		string = pattern.sub(' ',string)
 		result = []
 		for word in string.split():
-			result += self.one_word_query(word)
+			result += one_word_query(word)
 		return list(set(result))
 		
 If you wanted to implement a query that ensure that every word in the query shows up in the final result list, then you should just use an intersection instead of a union to aggregate the results of the single word queries. That's fairly trivial to do, and I'll leave it as an exercise to the reader. 
 
 The final type of query is a phrase query, which is a bit more involved, as we have to ensure the correct ordering of the words in the documents. Here's the code for this query (I'll explain after):
 
-	def phrase_query(self, string):
+	def phrase_query(string, invertedIndex):
 		pattern = re.compile('[\W_]+')
 		string = pattern.sub(' ',string)
 		listOfLists, result = [],[]
 		for word in string.split():
-			listOfLists.append(self.one_word_query(word))
+			listOfLists.append(one_word_query(word))
 		setted = set(listOfLists[0]).intersection(*listOfLists)
 		for filename in setted:
 			temp = []
 			for word in string.split():
-				temp.append(self.invertedIndex[word][filename][:])
+				temp.append(invertedIndex[word][filename][:])
 			for i in range(len(temp)):
 				for ind in range(len(temp[i])):
 					temp[i][ind] -= i
 			if set(temp[0]).intersection(*temp):
 				result.append(filename)
-		return self.rankResults(result, string)
+		return rankResults(result, string)
 		
 		
 So again, we first start off by sanitizing the input query. Then, we run a single word query for every word in the input, and add each of these result lists to our total list. Then, we create a set called setted, which takes the intersection of the first list with all the other list (essentially taking the intersection of all of the lists), and leaves us with our intermediate result set: all the documents that contain all the words in the query. 
