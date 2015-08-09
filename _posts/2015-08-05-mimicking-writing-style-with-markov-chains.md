@@ -5,10 +5,13 @@ modified:
 categories: 
 excerpt:
 tags: [python, markov chains, markov, natural language, monte carlo]
+comments: true
 image:
   feature:
 date: 2015-08-05T23:43:22-07:00
 ---
+
+{% include _toc.html %}
 
 I'm not sure if you guys will remember this, but a year or so back, there was a Facebook application that went viral called "What Would I Say," which claimed to "learn" your writing style from all of your previous activity on facebook, and then make statuses that sound like you. It wasn't very good, if we remember properly: sometimes, it would put together a proper sentence, but mostly, it was just nonsensical, where small subsets of the output seemed to work, but the final sentence failed utterly.
 
