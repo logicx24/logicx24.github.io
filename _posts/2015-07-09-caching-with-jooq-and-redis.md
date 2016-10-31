@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Caching in Java with JOOQ and Redis"
 modified:
 categories: 

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Recommending Subreddits by Computing User Similarity: An Introduction to Machine Learning in Python"
 modified:
 categories: 

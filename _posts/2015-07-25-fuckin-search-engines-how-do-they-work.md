@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Implementing a Search Engine with Ranking in Python"
 modified:
 categories: 
@@ -10,7 +10,6 @@ image:
   feature:
 date: 2015-07-25T22:26:50-07:00
 ---
-{% include _toc.html %}
 
 It might just be me, but every time I use Quora, I end up seeing at least one question like [this one](http://www.quora.com/I-am-confident-that-I-am-going-to-build-a-search-engine-that-will-compete-with-Google-at-least-in-the-smallest-scale-possible-first-but-for-now-I-dont-know-any-programming-What-should-I-do): someone questioning how Google works, and how they can "beat" Google at search. Most of the questions aren't as brazen or misinformed as this one, but they all express a similar sentiment, and in doing so, they betray a significant misunderstanding of how search engines work. 
 

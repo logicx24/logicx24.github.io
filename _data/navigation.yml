@@ -1,15 +1,12 @@
-# Site navigation links
+# main links links
 
-- title: About the Blog
-  url: /about-the-blog/
+main:
+  - title: "About the Blog"
+    url: /about-the-blog.html
 
-- title: Post Archive
-  url: /posts/
+  - title: "About the Author"
+    url: /about-the-author.html
 
-- title: About the Author
-  url: /about-the-author/
-
-- title: Resume
-  url: /resume/  
-
+  - title: "Resume"
+    url: /resume.html
 
