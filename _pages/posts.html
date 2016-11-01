@@ -1,12 +1,9 @@
 ---
 layout: archive
+permalink: /posts.html
+title: "Posts by Year"
 author_profile: true
-header:
-  image: bythewatersofbabylon.jpg
-
 ---
-{% include paginator.html %}
-
 
 {% include base_path %}
 {% capture written_year %}'None'{% endcapture %}
@@ -18,4 +15,3 @@ header:
   {% endif %}
   {% include archive-single.html %}
 {% endfor %}
-

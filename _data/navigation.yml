@@ -1,12 +1,12 @@
 # main links links
 
 main:
+
   - title: "About the Blog"
     url: /about-the-blog.html
 
   - title: "About the Author"
     url: /about-the-author.html
 
-  - title: "Resume"
-    url: /resume.html
+
 

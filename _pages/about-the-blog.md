@@ -4,8 +4,8 @@ title: The Sopranos, Silicon Valley, and Summer Afternoons
 tags: [about, Aakash Japi, Writing, American Dream, The Godfather]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
-image:
-  feature: bonasera.jpg
+header:
+  image: bonasera.jpg
 ---
 
 > ### I believe in America. America has made my fortune.
