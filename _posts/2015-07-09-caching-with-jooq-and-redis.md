@@ -1,4 +1,5 @@
 ---
+layout: single
 title: "Caching in Java with JOOQ and Redis"
 modified:
 categories: 
