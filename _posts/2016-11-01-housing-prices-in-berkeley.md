@@ -53,31 +53,25 @@ Finding an Intrinsic Price
 
 Now that we have a better understanding of rent pricing in Berkeley, lets change course, and ask a more fundamental question: what is the intrinsic value of an apartment?
 
-Economics says that all available information about an apartment is encompassed in its current price, and so, it has no intrinsic value: it's value is the price people are willing to pay (this is actually also the central assumption of technical stock analysis). This defintion, however, isn't particularly useful for us now, and so, I propose a different one.
+Economics says that all available information about an apartment is encompassed in its current price, and so, it has no intrinsic value: its value is the price people are willing to pay (this is actually also the central assumption of technical stock analysis). This definition, however, isn't particularly useful for us now, and so, I propose a different one.
 
-The intrinsic value of an apartment with some arbitrary features is what another apartment, with exactly the same features, would sell for, averaged over all other apartments (where a feature represents some measurable quantity of the apartment that we can measure. Here, a feature could be square footage, or number of bathrooms, or etc.) 
+The intrinsic value of an apartment with some arbitrary feature vector is what another apartment, with exactly the same feature vector, would sell for, averaged over all other apartments (where a feature represents some quantity of the apartment that we can measure. Here, a feature could be square footage, or number of bathrooms, etc.) 
 
 But, this is the exactly the same problem as predicting prices! If we had some training set and a machine learning model trained on this training set, then, the price that model predicts for a given apartment is that apartment's intrinsic value (what that apartment would cost if we cared only about its features). Then, we can compare the actual price of that apartment and determine whether it's overvalued or undervalued relative to its intrinsic price. 
 
-And that's what I did! I scraped about 1500 Craigslist listings over the past few days, parsed them, and used a Ridge Regression model to predict prices for any new listing.
+And that's what I did. I scraped about 1500 Craigslist listings over the past few days, parsed them, and used a Ridge Regression model to predict prices for any new listing.
 
 ### Why Ridge Regression?
 
-Why Ridge Regression? Well, the obvious reason is that it performed the best. On a 10-fold cross validation test, Ridge Regression gave an accuracy of about 42%, with a standard deviation of 12%. I also only have 7000 listings, a pretty training set, and more complicated models would overfit to such a small set (and they did: I tried a 3-layer neural network and a random forest, both of which performed significantly worse). 
+Why Ridge Regression? Well, the obvious reason is that it performed the best. On a 10-fold cross validation test, Ridge Regression gave an accuracy of about 42%, with a standard deviation of 22%. I also only have 7000 listings, a pretty small training set, and more complicated models will overfit on such a small set (and they did: I tried a 3-layer neural network and a random forest, both of which performed significantly worse). 
 
-But beyond that, I wanted to maintain interpretability. I'm using this model as a measure of intrinsic price, not for price prediction, and so I wanted to first be able to understand the amount each feature influences the final price, and second to ensure that the intrinsic price idea isn't obscured by the complication of the model. For example, a neural network makes it much harder to discuss intrinsic value, because it obscures how information is combined to create predictions. A regression model, for comparison, is fairly transparent: it uses linear algebra to assign weights to each feature, and does a simple vector multiplication for each prediction. 
+But beyond that, I wanted to maintain interpretability. I'm using this model as a measure of intrinsic price, not for price prediction, and so I wanted to easily understand the amount each feature influences the final price, and ensure that the intrinsic price idea isn't obscured by the complication of the model. For example, a neural network makes it much harder to discuss intrinsic value, because it obscures how information is combined to create predictions. A regression model, for comparison, is fairly transparent: it uses linear algebra to assign weights to each feature, and does a vector inner product to generate each prediction. 
 
 ### Features
 
 My features for the model were square footage, number of bedrooms, number of bathrooms, distance from campus (that is, the distance from the closest side of a bounding box that encompasses the Berkeley campus), the number of images in the listing, the number of unique words in the description, and the number of days since the listing was posted. 
 
 ### What Matters Most in Determining Prices?
-
-- Analyze every feature used in our model 
- - Determine how much a feature influences a price by comparing prices of two listings, identical in every way except for that feature
-- Discuss preprocessing and imputing values
-- Discuss lack of data, and lack of data over time, and how these effect my idea of intrinsic price (as month isn't a feature, though from previous data it should be)
-- Discuss how much distance from campus matters
 
 Here are the weights of each feature in our model:
 
@@ -103,7 +97,7 @@ So, lets say we want to find the intrinsic value of some arbitrary apartment, li
 
 ![Craigslist Listing](../images/listing.png){:class="img-responsive"}
 
-Then, if we calculate each feature, multiply it by its corresponding weight, and add it together, we get 2507.84967859 as our prediction, which is pretty close (there's a lot of text not visible in the screenshot). Then, by our model, this listing is undervalued based upon the model's perception of its quality, and so, we should consider renting it.
+Then, if we calculate each feature, multiply it by its corresponding weight, and add it together, we get 2507.84967859 as our prediction, which is pretty close (there's a lot of text not visible in the screenshot). Then, this listing is undervalued based upon the model's perception of its quality, and so, we should consider renting it.
 
 ### Listing-Specific Features
 
@@ -124,13 +118,15 @@ And, look for the less verbose listings with fewer images. Yes, a lot of these w
 
 Timing is also key. We saw that in Berkeley, apartments are much cheaper in November than they are in May or August. If you can time your apartment search with these patterns, you can get a significantly better deal. The Berkeley rental market is especially sensitive to seasonal variation, because it serves mostly students, who have very specific restrictions on lease dates, so waiting can actually help a lot. 
 
-So, given the information we know, the optimal strategy for finding the best deal would be to start searching in November, constantly check Craigslist, and look beyond the well-formatted, well-documented listings. Put differently, my advice boils down to buying from people who don't know how to sell, who don't understand what creates leads and drives purchases, which, since the beginning of capitalism, has always been good idea.
+So, given the information we know, the optimal strategy for finding the best deal would be to start searching in November, constantly check Craigslist, and look beyond the well-formatted, well-documented listings. Put differently, my advice boils down to buying from people who don't know how to sell, who don't understand what creates leads and drives purchases, a strategy that, for the entire history of capitalism, has always been good idea.
 
 
 The Code
 --------
 
-All of our code is available in [a repository on Github](https://github.com/logicx24/DailyCalHousingAnalysis). It's a bit confusing to navigate, though, so here's a small guide. The Craigslist scraper code is in **/Scraper/CragislistScraper** (NOT in **/CraigslistScraper**, confusingly), and it was written using scrapy [read more here](https://doc.scrapy.org/en/1.2/). My graphs are generated using **/Data/Raw/VisualizeRentCollectionData.ipynb**. The prediction/regression code is located in **/Server/listingPrediction.py**. Our maps were made using Google maps. **/Server/listings.json** is a dump of the MongoDB database that I was using to store Craigslist items, while **/Server/training_data.csv** is a vectorized version of those listings. Otherwise, rent board data is found at **/Data/Raw/rent\_collection\_board.csv** and **/Data/Raw/rent\_collection\_board\_avg\_ppr.csv**.
+All of our code is available in [a repository on Github](https://github.com/logicx24/DailyCalHousingAnalysis). It's a bit confusing to navigate, though, so here's a small guide:
+
+The Craigslist scraper code is in **/Scraper/CragislistScraper** (NOT in **/CraigslistScraper**, confusingly), and it was written using scrapy [read more here](https://doc.scrapy.org/en/1.2/). My graphs are generated using **/Data/Raw/VisualizeRentCollectionData.ipynb**. The prediction/regression code is located in **/Server/listingPrediction.py**. Our maps were made using Google maps. **/Server/listings.json** is a dump of the MongoDB database that I was using to store Craigslist items, while **/Server/training_data.csv** is a vectorized version of those listings. Otherwise, rent board data is found at **/Data/Raw/rent\_collection\_board.csv** and **/Data/Raw/rent\_collection\_board\_avg\_ppr.csv**.
 
 (Sorry about the inconsistent snake_case and camelCase).
 
