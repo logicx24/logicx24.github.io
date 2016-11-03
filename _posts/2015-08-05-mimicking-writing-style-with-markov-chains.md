@@ -6,6 +6,7 @@ categories:
 excerpt:
 tags: [python, markov chains, markov, natural language, monte carlo]
 comments: true
+author_profile: true
 image:
   feature:
 date: 2015-08-05T23:43:22-07:00

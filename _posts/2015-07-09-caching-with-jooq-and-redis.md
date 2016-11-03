@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Caching in Java with JOOQ and Redis"
+author_profile: true
 modified:
 categories: 
 excerpt:

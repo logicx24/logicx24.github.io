@@ -4,6 +4,7 @@ title: The Sopranos, Silicon Valley, and Summer Afternoons
 tags: [about, Aakash Japi, Writing, American Dream, The Godfather]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
+author_profile: true
 header:
   image: bonasera.jpg
 ---

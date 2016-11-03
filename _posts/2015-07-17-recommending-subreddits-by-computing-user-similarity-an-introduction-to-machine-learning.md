@@ -5,6 +5,7 @@ modified:
 categories: 
 excerpt:
 tags: [reddit, subreddits, machine learning, nearest neighbors, recommendation engine, recommendations, python]
+author_profile: true
 comments: true
 image:
   feature:

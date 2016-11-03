@@ -1,6 +1,7 @@
 ---
 permalink: /about-the-author.html
 title: Aakash Japi
+author_profile: true
 date:
 modified:
 excerpt:
@@ -11,7 +12,7 @@ image:
 
 Hey!
 
-I'm Aakash, a writer, movie-enthusiast, and software engineer entering my junior year at UC-Berkeley. I love startups, distributed systems, and infrastructure, but more than anything else I love to talk, and that's what this is for! I have an excess of mini-lectures backlogged in my memory that usually get wasted on my showerhead or unfortunate friends and passerby, but now, I have you people to lecture to. This will be a fantastic time. I'm already tingling with excitement...
+I'm Aakash, a writer, movie-enthusiast, and software engineer graduating UC-Berkeley this semester. I love startups, distributed systems, and infrastructure, but more than anything else I love to talk, and that's what this is for! I have an excess of mini-lectures backlogged in my memory that usually get wasted on my showerhead or unfortunate friends and passerby, but now, I have you people to lecture to. This will be a fantastic time. I'm already tingling with excitement...
 
 No, but actually, I do love to talk, especially on subjects I care about, like movies, books, history, startups, and programming. I think this comes from my reservedness in middle and early high school. I spent most of those years hidden in books and the internet, discovering and learning about a lot of really interesting things, so when I re-entered the world, I had a lot to say on things that other people never really thought about (at least in my crappy high school on Long Island: fuck you, New Hyde Park Memorial. On a sidenote, that really frustrates me: that we pay some of the highest property taxes in the country and our school is still an abominable piece of shit. Where does all the money go? We even approve the raised budget every year. I should've gone to Herricks). 
 

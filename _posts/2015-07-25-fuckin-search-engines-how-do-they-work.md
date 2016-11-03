@@ -6,6 +6,7 @@ categories:
 excerpt:
 tags: [google, search engines, inverted index, query, term frequency, inverse document frequency, python]
 comments: true
+author_profile: true
 image:
   feature:
 date: 2015-07-25T22:26:50-07:00
